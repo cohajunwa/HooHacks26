@@ -1,0 +1,31 @@
+:root {
+  --sage:    #ccd5ae;
+  --lime:    #e9edc9;
+  --cream:   #fefae0;
+  --peach:   #faedcd;
+  --caramel: #d4a373;
+
+  --font-display: 'Poiret One', sans-serif;
+  --font-body:    'Montserrat', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cream);
+  color: #2d2d2d;
+  font-family: var(--font-body);
+  font-weight: 400;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
