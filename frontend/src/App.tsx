@@ -17,7 +17,8 @@ export default function App() {
 
     try {
       const params = new URLSearchParams({ q: query });
-      const res = await fetch(`/search?${params}`);
+      const base = import.meta.env.VITE_API_URL ?? '';
+      const res = await fetch(`${base}/search?${params}`);
       if (!res.ok) throw new Error(`Server error: ${res.status}`);
       const data: SearchResponse = await res.json();
       setResults(data.results);
