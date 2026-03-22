@@ -7,12 +7,20 @@ export interface Product {
   sustainability_rating?: string | null;
 }
 
+export interface FilterOption {
+  text: string;
+  shoprs: string;
+  selected: boolean;
+}
+
+export interface FilterGroup {
+  type: string;
+  input_type: 'checkbox' | 'link_with_icon' | 'price_range';
+  options: FilterOption[];
+}
+
 export interface SearchResponse {
   query: string;
-  filters: {
-    min_price: number | null;
-    max_price: number | null;
-    sort_by: number | null;
-  };
+  filter_groups: FilterGroup[];
   results: Product[];
 }

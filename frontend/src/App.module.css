@@ -34,16 +34,29 @@
 /* ── Main ── */
 .main {
   flex: 1;
-  padding: 40px 24px 60px;
-  max-width: 1280px;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 40px 32px 60px;
+  max-width: 1380px;
   width: 100%;
   margin: 0 auto;
+}
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
 }
 
 /* ── Product grid ── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 20px;
 }
 
@@ -62,8 +75,7 @@
 }
 
 .error {
-  text-align: center;
   color: #c0614a;
   font-size: 14px;
-  padding: 32px;
+  padding: 16px 0;
 }
