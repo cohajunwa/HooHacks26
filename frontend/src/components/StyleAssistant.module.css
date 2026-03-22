@@ -120,6 +120,122 @@
   opacity: 1;
 }
 
+/* ── Search step ── */
+.searchContainer {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.searchForm {
+  display: flex;
+  gap: 10px;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 12px 18px;
+  border: 1.5px solid #c5d5c0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 300;
+  color: #2d2d2d;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.searchInput:focus {
+  border-color: #8aab83;
+}
+
+.searchBtn {
+  padding: 12px 28px;
+  background: #5a7d54;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.searchBtn:hover:not(:disabled) {
+  background: #4a6b44;
+}
+
+.searchBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.backBtn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.03em;
+  transition: color 0.15s;
+}
+
+.backBtn:hover {
+  color: #4a4a4a;
+}
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  color: #888;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+.error {
+  color: #c0614a;
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.summary {
+  font-size: 15px;
+  font-weight: 300;
+  color: #4a4a4a;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  padding: 16px 20px;
+  background: #f7faf6;
+  border-left: 3px solid #8aab83;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.outfitSections {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
 /* ── Actions ── */
 .actions {
   display: flex;

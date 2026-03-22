@@ -25,3 +25,14 @@ export interface SearchResponse {
   filter_groups: FilterGroup[];
   results: Product[];
 }
+
+export interface OutfitItem {
+  label: string;
+  search_query: string;
+  results: Product[];
+}
+
+export interface StyleAssistantResponse {
+  summary: string;
+  outfit_items: OutfitItem[];
+}

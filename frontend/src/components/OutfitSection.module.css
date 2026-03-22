@@ -1,0 +1,35 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: #2d2d2d;
+  letter-spacing: 0.04em;
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e8ede6;
+}
+
+.empty {
+  font-size: 13px;
+  color: #aaa;
+  font-weight: 300;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #c5d5c0 transparent;
+}
+
+.cardWrap {
+  flex: 0 0 190px;
+}
