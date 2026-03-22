@@ -14,7 +14,10 @@ _NOT_FOUND_SENTINEL = "__NOT_FOUND__"
 
 def _load_cache() -> dict:
     if _CACHE_FILE.exists():
-        return json.loads(_CACHE_FILE.read_text())
+        try:
+            return json.loads(_CACHE_FILE.read_text())
+        except json.JSONDecodeError:
+            return {}
     return {}
 
 
