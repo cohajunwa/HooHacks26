@@ -9,8 +9,8 @@ interface Props {
   filterGroups: FilterGroup[];
   onSelectFilter: (shoprs: string) => void;
   onPriceRange: (min: number | null, max: number | null) => void;
-  selectedRating: GoyRating | null;
-  onRatingChange: (rating: GoyRating | null) => void;
+  // selectedRating: GoyRating | null;
+  // onRatingChange: (rating: GoyRating | null) => void;
   disabled: boolean;
 }
 
