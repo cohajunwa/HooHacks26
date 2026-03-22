@@ -3,6 +3,7 @@ export interface Product {
   source: string;
   price: string;
   link: string;
+  product_link?: string;
   thumbnail?: string;
   sustainability_rating?: string | null;
 }

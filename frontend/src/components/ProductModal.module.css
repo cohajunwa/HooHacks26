@@ -1,0 +1,152 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal {
+  position: relative;
+  background: var(--cream);
+  border-radius: 16px;
+  display: flex;
+  gap: 28px;
+  max-width: 680px;
+  width: 100%;
+  overflow: hidden;
+  animation: slideUp 0.18s ease;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: var(--sage);
+  color: #2d2d2d;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.13s;
+  z-index: 1;
+}
+
+.closeBtn:hover {
+  background: var(--caramel);
+  color: #fff;
+}
+
+.imageWrap {
+  width: 240px;
+  flex-shrink: 0;
+  background: var(--lime);
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  background: var(--sage);
+  opacity: 0.5;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px 32px 32px 0;
+  justify-content: center;
+}
+
+.source {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--caramel);
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #2d2d2d;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ratingLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.ctaBtn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 12px 24px;
+  background: var(--caramel);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 40px;
+  text-align: center;
+  transition: opacity 0.15s;
+  align-self: flex-start;
+}
+
+.ctaBtn:hover {
+  opacity: 0.88;
+}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import ProductCard from './components/ProductCard';
 import FilterBar, { type GoyRating } from './components/FilterBar';
+import ProductModal from './components/ProductModal';
 import type { FilterGroup, Product, SearchResponse } from './types';
 import styles from './App.module.css';
 
@@ -10,6 +11,7 @@ export default function App() {
   const [filterGroups, setFilterGroups] = useState<FilterGroup[]>([]);
   const [currentQuery, setCurrentQuery] = useState('');
   const [selectedRating, setSelectedRating] = useState<GoyRating | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [searched, setSearched] = useState(false);
@@ -90,7 +92,7 @@ export default function App() {
           {!loading && visibleResults.length > 0 && (
             <div className={styles.grid}>
               {visibleResults.map((product, i) => (
-                <ProductCard key={i} product={product} />
+                <ProductCard key={i} product={product} onSelect={setSelectedProduct} />
               ))}
             </div>
           )}
@@ -102,6 +104,9 @@ export default function App() {
           )}
         </div>
       </main>
+      {selectedProduct && (
+        <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+      )}
     </div>
   );
 }

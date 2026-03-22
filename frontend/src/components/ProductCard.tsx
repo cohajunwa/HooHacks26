@@ -18,14 +18,14 @@ function RatingBadge({ rating }: { rating: string }) {
   );
 }
 
-export default function ProductCard({ product }: { product: Product }) {
+interface Props {
+  product: Product;
+  onSelect: (product: Product) => void;
+}
+
+export default function ProductCard({ product, onSelect }: Props) {
   return (
-    <a
-      href={product.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={styles.card}
-    >
+    <button className={styles.card} onClick={() => onSelect(product)}>
       <div className={styles.imageWrap}>
         {product.thumbnail ? (
           <img src={product.thumbnail} alt={product.title} className={styles.image} />
@@ -44,6 +44,6 @@ export default function ProductCard({ product }: { product: Product }) {
           )}
         </div>
       </div>
-    </a>
+    </button>
   );
 }
