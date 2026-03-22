@@ -108,8 +108,7 @@ export default function App() {
                 filterGroups={filterGroups}
                 onSelectFilter={shoprs => handleSearch(currentQuery, shoprs)}
                 onPriceRange={(min, max) => handleSearch(currentQuery, undefined, min, max)}
-                selectedRating={selectedRating}
-                onRatingChange={setSelectedRating}
+
                 disabled={loading}
               />
             </aside>

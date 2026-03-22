@@ -66,7 +66,7 @@ function PriceRangeGroup({
   );
 }
 
-export default function FilterBar({ filterGroups, onSelectFilter, onPriceRange, selectedRating, onRatingChange, disabled }: Props) {
+export default function FilterBar({ filterGroups, onSelectFilter, onPriceRange, disabled }: Props) {
   const priceRangeGroup = filterGroups.find(g => g.input_type === 'price_range');
   const discreteGroups = filterGroups.filter(g => g.input_type !== 'price_range');
 
