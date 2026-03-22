@@ -37,10 +37,24 @@ def search_products(
         return _search_until_full(params)
 
     results = client.search(params)
+    shopping = results.get("shopping_results", [])
+    _normalize_sources(shopping)
     return {
-        "shopping_results": results.get("shopping_results", []),
+        "shopping_results": shopping,
         "filters": results.get("filters", []),
     }
+
+
+_MARKETPLACE_PREFIXES = ("Etsy", "eBay")
+
+def _normalize_sources(results: list) -> None:
+    """Trim marketplace seller suffixes, e.g. 'Etsy - SandyVintageBoutique' → 'Etsy'."""
+    for result in results:
+        source = result.get("source", "")
+        for prefix in _MARKETPLACE_PREFIXES:
+            if source.startswith(prefix):
+                result["source"] = prefix
+                break
 
 
 def _search_until_full(params: dict, target: int = 10, max_pages: int = 3) -> dict:
@@ -56,6 +70,7 @@ def _search_until_full(params: dict, target: int = 10, max_pages: int = 3) -> di
             filters = response.get("filters", [])
 
         page_results = response.get("shopping_results", [])
+        _normalize_sources(page_results)
         all_results.extend(page_results)
 
         if len(all_results) >= target or not page_results:

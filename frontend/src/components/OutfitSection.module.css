@@ -21,6 +21,153 @@
   font-weight: 300;
 }
 
+/* ── Filter controls ── */
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Brand dropdown */
+.brandWrapper {
+  position: relative;
+}
+
+.filterBtn {
+  padding: 6px 14px;
+  border: 1.5px solid var(--sage);
+  border-radius: 6px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: #2d2d2d;
+  cursor: pointer;
+  transition: background 0.13s, border-color 0.13s;
+  white-space: nowrap;
+}
+
+.filterBtn:hover {
+  background: #f0f6ee;
+}
+
+.filterBtnActive {
+  background: var(--caramel);
+  border-color: var(--caramel);
+  color: #fff;
+}
+
+.filterBtnActive:hover {
+  opacity: 0.88;
+  background: var(--caramel);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 100;
+  background: #fff;
+  border: 1.5px solid #dde8da;
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.dropdownEmpty {
+  font-size: 12px;
+  color: #aaa;
+  margin: 0;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #2d2d2d;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.checkboxLabel input {
+  accent-color: #5a7d54;
+  cursor: pointer;
+}
+
+/* Price filter */
+.priceFilter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.priceInput {
+  width: 80px;
+  padding: 5px 8px;
+  border: 1.5px solid var(--sage);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 12px;
+  color: #2d2d2d;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.13s;
+}
+
+.priceInput:focus {
+  border-color: #8aab83;
+}
+
+.priceSep {
+  font-size: 12px;
+  color: #888;
+}
+
+.applyBtn {
+  padding: 6px 12px;
+  border: 1.5px solid var(--sage);
+  border-radius: 6px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: #2d2d2d;
+  cursor: pointer;
+  transition: background 0.13s;
+}
+
+.applyBtn:hover:not(:disabled) {
+  background: #f0f6ee;
+}
+
+.applyBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.clearBtn {
+  padding: 4px 10px;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 11px;
+  color: #888;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.13s;
+}
+
+.clearBtn:hover {
+  color: #4a4a4a;
+}
+
+/* ── Product row ── */
 .row {
   display: flex;
   gap: 16px;
