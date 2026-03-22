@@ -3,13 +3,13 @@
 }
 
 .trigger {
-  padding: 7px 16px;
+  padding: 12px 18px;
   border: 1.5px solid var(--sage);
-  border-radius: 40px;
+  border-radius: 8px;
   background: #fff;
   font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 300;
   color: #2d2d2d;
   cursor: pointer;
   white-space: nowrap;
@@ -17,13 +17,15 @@
 }
 
 .trigger:hover {
-  background: #f0f6ee;
+  background: var(--peach);
+  border-color: var(--caramel);
 }
 
 .triggerActive {
   background: var(--caramel);
   border-color: var(--caramel);
   color: #fff;
+  font-weight: 500;
 }
 
 .triggerActive:hover {

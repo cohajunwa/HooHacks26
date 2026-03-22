@@ -89,19 +89,19 @@ export default function App() {
           </button>
         </div>
 
-        {activeTab === 'search' && (
-          <>
-            <SearchBar onSearch={q => handleSearch(q)} loading={loading} />
-            <BrandPicker selectedBrands={selectedBrands} onChange={brands => {
-              setSelectedBrands(brands);
-              if (currentQuery) handleSearch(currentQuery, undefined, undefined, undefined, brands);
-            }} />
-          </>
-        )}
       </header>
 
       {activeTab === 'search' ? (
         <main className={styles.main}>
+          <div className={styles.searchSection}>
+            <BrandPicker selectedBrands={selectedBrands} onChange={brands => {
+              setSelectedBrands(brands);
+              if (currentQuery) handleSearch(currentQuery, undefined, undefined, undefined, brands);
+            }} />
+            <SearchBar onSearch={q => handleSearch(q)} loading={loading} />
+          </div>
+
+          <div className={styles.resultsLayout}>
           {searched && filterGroups.length > 0 && (
             <aside className={styles.sidebar}>
               <FilterBar
@@ -162,6 +162,7 @@ export default function App() {
                 <p>Search for any clothing item to discover sustainable options.</p>
               </div>
             )}
+          </div>
           </div>
         </main>
       ) : (

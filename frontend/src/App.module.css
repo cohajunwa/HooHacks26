@@ -69,12 +69,29 @@
 .main {
   flex: 1;
   display: flex;
-  align-items: flex-start;
-  gap: 32px;
+  flex-direction: column;
   padding: 40px 32px 60px;
   max-width: 1380px;
   width: 100%;
   margin: 0 auto;
+  gap: 32px;
+}
+
+.searchSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 720px;
+  align-self: center;
+}
+
+.resultsLayout {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
 }
 
 .sidebar {
