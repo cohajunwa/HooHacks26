@@ -48,7 +48,7 @@ export default function ProductModal({ product, onClose }: Props) {
 
           {product.sustainability_rating && ratingColor && (
             <div className={styles.ratingRow}>
-              <span className={styles.ratingLabel}>Good on You</span>
+              {/* <span className={styles.ratingLabel}>Good on You</span> */}
               <span className={styles.badge} style={{ background: ratingColor }}>
                 {product.sustainability_rating}
               </span>

@@ -53,7 +53,7 @@ def _parse_gemini_response(text: str) -> dict:
 
 
 def _run_search(search_query: str) -> list:
-    return search_products(search_query, sustainable_only=True)["shopping_results"]
+    return search_products(search_query, brands=[])["shopping_results"]
 
 
 @router.post("/style-assistant")

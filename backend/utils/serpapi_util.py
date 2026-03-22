@@ -2,7 +2,7 @@ import serpapi
 import os
 
 from dotenv import load_dotenv
-from utils.sustainable_brands import SITE_FILTER
+from utils.sustainable_brands import SITE_FILTER, SUSTAINABLE_BRANDS
 
 load_dotenv()
 
@@ -15,10 +15,20 @@ def search_products(
         shoprs: str | None = None,
         min_price=None,
         max_price=None,
-        sustainable_only: bool = False,
+        brands: list[str] | None = None,
+        page: int | None = None,
     ):
-    if sustainable_only:
-        q = f"{q} {SITE_FILTER}"
+    # brands=None → no filter; brands=[] → all curated; brands=[...] → specific subset
+    # page=None   → multi-page auto-fetch (style assistant); page=N → single page fetch (main search)
+    if brands is not None:
+        if brands:
+            site_filter = " OR ".join(
+                f"site: {SUSTAINABLE_BRANDS[b]}" for b in brands if b in SUSTAINABLE_BRANDS
+            )
+        else:
+            site_filter = SITE_FILTER
+        if site_filter:
+            q = f"{q} {site_filter}"
 
     params = {
         "engine": "google_shopping",
@@ -33,8 +43,21 @@ def search_products(
 
     print(q)
 
-    if sustainable_only:
-        return _search_until_full(params)
+    if brands is not None:
+        if page is not None:
+            # Single-page fetch for user-driven pagination
+            params["start"] = page * 10
+            response = client.search(params)
+            shopping = response.get("shopping_results", [])
+            _normalize_sources(shopping)
+            return {
+                "shopping_results": shopping,
+                "filters": response.get("filters", []),
+                "has_more": len(shopping) >= 10,
+            }
+        else:
+            # Multi-page auto-fetch for style assistant
+            return _search_until_full(params)
 
     results = client.search(params)
     shopping = results.get("shopping_results", [])
@@ -42,6 +65,7 @@ def search_products(
     return {
         "shopping_results": shopping,
         "filters": results.get("filters", []),
+        "has_more": False,
     }
 
 

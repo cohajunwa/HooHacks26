@@ -24,6 +24,7 @@ export interface SearchResponse {
   query: string;
   filter_groups: FilterGroup[];
   results: Product[];
+  has_more: boolean;
 }
 
 export interface OutfitItem {

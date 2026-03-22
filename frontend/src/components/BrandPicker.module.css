@@ -1,0 +1,93 @@
+.wrapper {
+  position: relative;
+}
+
+.trigger {
+  padding: 7px 16px;
+  border: 1.5px solid var(--sage);
+  border-radius: 40px;
+  background: #fff;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: #2d2d2d;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.13s, border-color 0.13s;
+}
+
+.trigger:hover {
+  background: #f0f6ee;
+}
+
+.triggerActive {
+  background: var(--caramel);
+  border-color: var(--caramel);
+  color: #fff;
+}
+
+.triggerActive:hover {
+  opacity: 0.88;
+  background: var(--caramel);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: #fff;
+  border: 1.5px solid #dde8da;
+  border-radius: 10px;
+  padding: 12px 14px;
+  min-width: 200px;
+  max-height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.hint {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  margin: 0 0 2px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #2d2d2d;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.checkboxLabel input {
+  accent-color: #5a7d54;
+  cursor: pointer;
+}
+
+.clearBtn {
+  margin-top: 4px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 11px;
+  color: #888;
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: left;
+  transition: color 0.13s;
+}
+
+.clearBtn:hover {
+  color: #4a4a4a;
+}

@@ -72,7 +72,7 @@ export default function FilterBar({ filterGroups, onSelectFilter, onPriceRange, 
 
   return (
     <div className={styles.bar}>
-      <div className={styles.group}>
+      {/* <div className={styles.group}>
         <span className={styles.groupLabel}>Good on You score</span>
         <div className={styles.chips}>
           {GOY_RATINGS.map(rating => (
@@ -86,7 +86,7 @@ export default function FilterBar({ filterGroups, onSelectFilter, onPriceRange, 
             </button>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {discreteGroups.length > 0 && <hr className={styles.divider} />}
 
