@@ -13,8 +13,9 @@ def search(
     shoprs: Optional[str] = Query(None, description="Opaque SerpAPI filter token"),
     min_price: Optional[float] = Query(None, ge=0, description="Custom price range minimum"),
     max_price: Optional[float] = Query(None, ge=0, description="Custom price range maximum"),
+    sustainable_only: bool = Query(False, description="Restrict results to curated sustainable brands"),
 ):
-    data = search_products(q, shoprs, min_price, max_price)
+    data = search_products(q, shoprs, min_price, max_price, sustainable_only)
     results = data["shopping_results"]
 
     for result in results:
